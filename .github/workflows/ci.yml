@@ -19,7 +19,7 @@ jobs:
           otp-version: "27.3.4.11"
           rebar3-version: "3.24.0"
           version-type: strict
-          gleam-version: "v1.15.2"
+          gleam-version: "1.15.4"
 
       - name: Run Skir formatting
         run: npx skir format --ci
