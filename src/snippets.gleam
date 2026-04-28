@@ -41,8 +41,9 @@ pub fn main() {
   io.println(int.to_string(user.user_default.user_id))
   // 0
 
-  // Gleam's record update syntax lets you specify just a few fields and keep
-  // the rest from an existing instance.
+  // Combining the _default constant with Gleam's record update syntax allows
+  // you to instantiate a struct by only specifying a subset of its fields;
+  // the remaining fields are set to their default values.
   let jane = user.User(..user.user_default, user_id: 43, name: "Jane Doe")
 
   io.println(jane.quote)
@@ -50,8 +51,8 @@ pub fn main() {
   io.println(int.to_string(list.length(jane.pets)))
   // 0
 
-  // Gleam records are immutable. To make a modified copy, use record update
-  // syntax on the original.
+  // Gleam records are immutable.
+  // To make a modified copy, use record update syntax on the original.
   let evil_john =
     user.User(
       ..john,
@@ -63,8 +64,6 @@ pub fn main() {
   // Evil John
   io.println(int.to_string(evil_john.user_id))
   // 42 (copied from john)
-  io.println(john.name)
-  // John Doe (john is unchanged)
 
   // ==========================================================================
   // ENUM TYPES
