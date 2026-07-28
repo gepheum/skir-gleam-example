@@ -23,13 +23,13 @@ pub fn main() {
   // `unrecognized_` field automatically.
   let john =
     user.user_new(
-      "John Doe",
-      [
-        user.user__pet_new(1.0, "Dumbo", "🐘"),
+      name: "John Doe",
+      pets: [
+        user.user__pet_new(height_in_meters: 1.0, name: "Dumbo", picture: "🐘"),
       ],
-      "Coffee is just a socially acceptable form of rage.",
-      user.SubscriptionStatusFree,
-      42,
+      quote: "Coffee is just a socially acceptable form of rage.",
+      subscription_status: user.SubscriptionStatusFree,
+      user_id: 42,
     )
 
   io.println(john.name)
@@ -78,7 +78,7 @@ pub fn main() {
     user.SubscriptionStatusPremium,
     // Wrapper variants carry an inner struct.
     user.SubscriptionStatusTrialX(
-      user.subscription_status__trial_new(timestamp.Timestamp(
+      user.subscription_status__trial_new(start_time: timestamp.Timestamp(
         unix_millis: 1_743_592_409_000,
       )),
     ),
@@ -103,7 +103,7 @@ pub fn main() {
 
   let trial_status =
     user.SubscriptionStatusTrialX(
-      user.subscription_status__trial_new(timestamp.Timestamp(
+      user.subscription_status__trial_new(start_time: timestamp.Timestamp(
         unix_millis: 1_743_592_409_000,
       )),
     )

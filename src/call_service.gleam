@@ -18,11 +18,11 @@ pub fn main() {
 
   let users_to_add = [
     user.user_new(
-      "John Doe",
-      [],
-      "Coffee is just a socially acceptable form of rage.",
-      user.SubscriptionStatusFree,
-      42,
+      name: "John Doe",
+      pets: [],
+      quote: "Coffee is just a socially acceptable form of rage.",
+      subscription_status: user.SubscriptionStatusFree,
+      user_id: 42,
     ),
     user.tarzan_const,
   ]
@@ -33,7 +33,7 @@ pub fn main() {
       service_client.invoke_remote(
         client,
         service.add_user_method(),
-        service.add_user_request_new(u),
+        service.add_user_request_new(user: u),
       )
     io.println(
       "Added user \"" <> u.name <> "\" (id=" <> int.to_string(u.user_id) <> ")",
@@ -45,7 +45,7 @@ pub fn main() {
     service_client.invoke_remote(
       client,
       service.get_user_method(),
-      service.get_user_request_new(tarzan.user_id),
+      service.get_user_request_new(user_id: tarzan.user_id),
     )
 
   case get_resp.user {

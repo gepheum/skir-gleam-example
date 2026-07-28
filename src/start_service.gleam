@@ -80,7 +80,7 @@ fn get_user_handler(
     Error(_) -> option.None
   }
 
-  #(Ok(service.get_user_response_new(found_user)), req_meta, KeepState)
+  #(Ok(service.get_user_response_new(user: found_user)), req_meta, KeepState)
 }
 
 fn add_user_handler(
